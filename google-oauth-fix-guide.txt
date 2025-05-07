@@ -1,0 +1,33 @@
+# Google OAuth Fix Guide
+
+Based on the error message, there's a specific issue with the redirect URI. The error shows:
+
+```
+redirect_uri=http://localhost:3000 flowName=GeneralOAuthFlow
+```
+
+I've updated your GoogleAuth.jsx component to:
+1. Hardcode the redirect URI to "http://localhost:3000"
+2. Explicitly set the redirectUri prop in the GoogleLogin component
+
+## To complete the fix:
+
+1. Go to Google Cloud Console:
+   - Navigate to https://console.cloud.google.com/
+   - Go to APIs & Services → Credentials
+   - Find your OAuth 2.0 Client ID (925544733840-s0t1dqoium2g3u7flr2ua4as73o4ncsu.apps.googleusercontent.com)
+   - Click on it to edit
+
+2. Under "Authorized redirect URIs":
+   - Add: http://localhost:3000
+   - Make sure this exact URI is listed (without any additional path)
+   - Save the changes
+
+3. Restart your Next.js application after making these changes
+
+## Alternative approach:
+If you prefer to keep your current Google Cloud Console settings, you can revert the code changes and update your Google Cloud Console to include both:
+- http://localhost:3000
+- http://localhost:3000/auth/google/callback
+
+The key is ensuring that the redirect URI in your code exactly matches what's registered in Google Cloud Console.

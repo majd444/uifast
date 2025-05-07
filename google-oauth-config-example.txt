@@ -1,0 +1,14 @@
+# Google OAuth2 Configuration
+# Copy these to your .env file
+
+# Google OAuth Client ID (required)
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-client-id-here.apps.googleusercontent.com
+
+# Google OAuth Redirect URI (optional, defaults to http://localhost:3000/auth/google/callback)
+NEXT_PUBLIC_GOOGLE_REDIRECT_URI=http://localhost:3000/auth/google/callback
+
+# Google OAuth Client Secret (if needed for server-side operations)
+GOOGLE_CLIENT_SECRET=your-client-secret-here
+
+# Additional Google API scopes if needed
+# NEXT_PUBLIC_GOOGLE_SCOPES=https://www.googleapis.com/auth/gmail.readonly,https://www.googleapis.com/auth/drive.readonly
